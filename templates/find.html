@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+    <div class="container mt-5">
+      <form method="GET" action="/find">
+        <div class="input-group mb-3">
+          <input type="text" name="userid" class="form-control" placeholder="사용자 ID 입력">
+          <button class="btn btn-primary" type="submit">검색</button>
+        </div>
+      </form>
+
+      {% if result %}
+        <div class="alert alert-info text-center">{{ result }}</div>
+      {% endif %}
+    </div>
+    <a href="{{url_for('payload')}}"><button type="button" class="btn btn-primary">payload</button></a>
+  </div>
+</main>
+{% endblock %}

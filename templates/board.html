@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+    <div class="container mt-5">
+
+    <!-- 검색창 -->
+      <form method="GET" action="/board" class="mb-4">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="검색할 제목 입력">
+          <button class="btn btn-primary" type="submit">검색</button>
+        </div>
+      </form>
+
+      <!-- 게시판 테이블 -->
+      <table class="table table-bordered table-striped">
+        <thead class="table-light">
+          <tr>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in results %}
+          <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.content }}</td>
+            <td>{{ row.author }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      {% if not results %}
+        <p class="text-muted">게시글이 없습니다.</p>
+      {% endif %}
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+    </div>
+  </div>
+</main>
+{% endblock %}
