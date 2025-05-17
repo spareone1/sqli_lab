@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS sqli_lab;
-USE spareone$sqli_lab;
+USE sqli_lab;
 
 CREATE TABLE users (
   idx INT AUTO_INCREMENT PRIMARY KEY,
