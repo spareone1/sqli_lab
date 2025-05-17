@@ -1,7 +1,7 @@
 import requests
 
 def func():
-    URL = 'http://localhost:5001/find'
+    URL = 'URL 입력'
     
     flag_len = 0
     while(True):
